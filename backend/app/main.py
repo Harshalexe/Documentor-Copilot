@@ -8,7 +8,7 @@ import uvicorn
 app = FastAPI(title="Documentor-Copilot")
 app.add_middleware(
     CORSMiddleware, # this allows the frontend/ any links to access the backend APIs. eg. links in allow origins can access the backend APIs. This is important for security reasons, as it prevents unauthorized access to your backend from other domains.
-    allow_origins= Settings().cors_origins,
+    allow_origins= Settings.cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -20,6 +20,7 @@ app.add_middleware(
 async def health()-> dict[str,str]: 
     return {"status": "ok"}
 
+# Command to run: uv run uvicorn app.main:app --reload
 
 if __name__ == "__main__":
     uvicorn.run("app.main:app", host="127.0.0.1",port=8000)
