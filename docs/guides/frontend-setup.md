@@ -13,6 +13,11 @@ pnpm add -D tailwindcss @tailwindcss/vite
 pnpm dlx shadcn@latest init
 ```
 
+The Vite configuration registers the Tailwind v4 plugin and the `@/*` import
+alias before running shadcn initialization. Keep the alias when adding
+components so imports such as `@/components/ui/button` resolve in both Vite
+and TypeScript.
+
 ## Run
 
 ```bash

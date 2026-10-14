@@ -107,7 +107,7 @@ def download_filings() -> dict:
                     "accession_number": filing["accession_number"],
                     "primary_document": filing["primary_document"],
                     "source_url": source_url,
-                    "local_path": str(local_path.relative_to(OUTPUT_DIR)),
+                    "local_path": local_path.relative_to(OUTPUT_DIR).as_posix(),
                 }
             )
             manifest["downloaded_count"] += 1
